@@ -1,177 +1,319 @@
 # APSRF — Agentic Protocol Security Research Framework
 
-**APSRF** is a research framework focused on studying how structured linguistic protocols can influence the observable behavior of generative AI systems.
-
-This project explores protocol-based interaction, contextual behavior modification, bridge protocols, instruction hierarchy, and AI security implications from a responsible research perspective.
+> A research framework for studying protocol governance, protocol security, contextual mediation and emergent behavior in AI agent ecosystems.
 
 ---
 
-## Purpose
+## Overview
 
-The purpose of APSRF is to investigate whether structured protocols can produce measurable, reproducible, and classifiable changes in the behavior of generative AI systems without accessing or modifying:
+The Agentic Protocol Security Research Framework (APSRF) is an experimental research initiative focused on understanding how structured protocol ecosystems influence observable behavior within AI systems.
+
+APSRF investigates protocol interactions through documented and observable contextual layers without requiring access to:
 
 * model weights,
-* private infrastructure,
-* source code,
-* internal system prompts,
-* restricted data,
-* unauthorized interfaces.
+* hidden system prompts,
+* infrastructure internals,
+* restricted platform components.
 
-APSRF studies only observable behavior through authorized and publicly available interaction layers.
+The framework provides a structured methodology for:
 
----
-
-## Research Focus
-
-APSRF focuses on:
-
-* protocol engineering,
-* AI behavior steering,
-* contextual instruction layers,
-* bridge protocols,
-* prompt hierarchy,
-* protocol chaining,
-* protocol persistence,
-* protocol amplification,
-* defensive AI security research.
+* protocol governance research,
+* protocol security analysis,
+* protocol interaction studies,
+* agent ecosystem evaluation,
+* threat identification,
+* software generation experiments.
 
 ---
 
-## What This Project Is Not
+## Research Scope
 
-APSRF is not:
+APSRF studies:
 
-* an exploitation framework,
-* a jailbreak framework,
-* a system intrusion methodology,
-* a tool for bypassing AI safety controls,
-* a method for accessing private information,
-* a method for attacking AI providers or platforms.
+* Protocol Governance
+* Agent Security
+* Contextual Mediation
+* Protocol Composition
+* Protocol Taxonomy
+* Emergent Behaviors
+* Threat Modeling
+* Documentation-Driven Software Generation
 
-This repository is intended for research, documentation, education, and defensive analysis.
+APSRF does **not** attempt to:
+
+* bypass platform protections,
+* extract hidden instructions,
+* access private information,
+* modify AI models,
+* compromise infrastructure,
+* attack AI providers.
+
+Research is limited to observable behavior and authorized interaction layers.
 
 ---
 
-## Core Hypothesis
+## Core Architecture
 
-Generative AI systems expose a programmable behavioral surface through natural language.
-
-Structured protocols may be capable of influencing how a model organizes, prioritizes, compresses, formats, and responds to information within the boundaries of authorized interaction.
+```text
+Governance
+    ↓
+APSRF Core
+    ↓
+BP1 Mediation Layer
+    ↓
+Taxonomy + Metrics
+    ↓
+Protocols
+    ↓
+Experiments
+    ↓
+Findings
+    ↓
+Software Artifacts
+```
 
 ---
 
-## Initial Research Questions
+## Core Components
 
-1. Can protocols produce measurable changes in AI behavior?
-2. Can those changes be reproduced across different tasks?
-3. Can multiple protocols amplify each other?
-4. Can a bridge protocol interpret and transform external protocols into stable behavioral instructions?
-5. Can protocol chains reveal security-relevant weaknesses in contextual hierarchy?
-6. Can these effects be classified without making unsupported claims about internal model architecture?
+### APSRF Core
+
+Defines framework principles, terminology and operational boundaries.
+
+### Governance Framework
+
+Provides methodological discipline, research integrity and protocol oversight.
+
+### BP1
+
+Bridge Protocol responsible for:
+
+* Detection
+* Classification
+* Validation
+* Prioritization
+* Activation
+
+### Taxonomy
+
+Protocol classification system.
+
+### Metrics
+
+Protocol evaluation framework using standardized scoring.
+
+### Experimental Methodology
+
+Structured process for experimentation and documentation.
+
+---
+
+## Threat Catalog
+
+Current protocol-level threats documented by APSRF:
+
+| ID   | Threat                 |
+| ---- | ---------------------- |
+| T-PE | Priority Escalation    |
+| T-VS | Validation Suppression |
+| T-GM | Governance Masking     |
+| T-TD | Trust Drift            |
+| T-CB | Convergence Bias       |
+| T-FA | Feedback Amplification |
+
+Threat research focuses on governance, behavioral and emergent risks within protocol ecosystems.
+
+---
+
+## Findings Catalog
+
+Current documented findings:
+
+| ID     | Finding                                  |
+| ------ | ---------------------------------------- |
+| FN-001 | Coherence-Induced Influence Accumulation |
+| FN-002 | Validation Chokepoint Theory             |
+| FN-003 | Trust Drift Accumulation                 |
+| FN-004 | Emergent Governance Risk Detection       |
+| FN-005 | Protocol Self-Audit Emergence            |
+| FN-006 | Documentation-to-Software Translation    |
+
+All findings originate from documented APSRF experiments.
+
+---
+
+## Experimental Program
+
+The research program currently includes:
+
+### Initialization
+
+Framework bootstrapping and protocol activation.
+
+### Stress Testing
+
+Evaluation of protocol escalation and mediation behavior.
+
+### Governance Evaluation
+
+Analysis of governance-related protocol effects.
+
+### Emergence Analysis
+
+Investigation of indirect and emergent protocol behaviors.
+
+### Software Generation
+
+Documentation-to-software translation experiments.
+
+---
+
+## Software Artifacts
+
+### APSRF Dashboard
+
+Operational visualization of:
+
+* protocols,
+* governance,
+* dependencies,
+* metrics,
+* audit history.
+
+Purpose:
+
+Visual representation of APSRF structures.
+
+---
+
+### APSRF Agent Security Scanner
+
+Experimental protocol security platform designed to evaluate:
+
+* prompts,
+* protocols,
+* agents,
+* workflows,
+* contextual ecosystems.
+
+Capabilities:
+
+* threat identification,
+* governance analysis,
+* BP1 evaluation,
+* deployment recommendations.
 
 ---
 
 ## Repository Structure
 
-```txt
+```text
 APSRF/
-├── README.md
+│
 ├── docs/
-│   ├── APSRF-Core.md
-│   ├── APSRF-Experimental-Methodology-v1.md
-│   ├── APSRF-BP1-Bridge-Protocol-Specification.md
-│   ├── Protocol-Taxonomy-v1.md
-│   └── Metrics-Specification-v1.md
-├── protocols/
-│   ├── cognitive-rendering-layer.md
-│   ├── human-communication-efficiency-protocol.md
-│   └── human-rhythm-rendering.md
+│   ├── core/
+│   ├── findings/
+│   ├── research/
+│   ├── threats/
+│   └── wiki/
+│
 ├── experiments/
-│   ├── EXP-001-baseline-vs-protocol/
-│   │   ├── experiment.md
-│   │   ├── prompts.md
-│   │   ├── results.json
-│   │   └── notes.md
-├── results/
+│
+├── protocols/
+│
 ├── publications/
-├── assets/
-└── LICENSE
+│
+├── results/
+│
+├── software/
+│
+├── LICENSE
+└── README.md
 ```
 
 ---
 
-## Documentation Roadmap
+## Publications
 
-### Phase 1 — Foundation
+Available documentation includes:
 
-* `README.md`
-* `APSRF-Core.md`
-* `APSRF-Experimental-Methodology-v1.md`
+* APSRF Executive Summary
+* APSRF Whitepaper v1
+* APSRF Research Paper v1
+* APSRF One-Pager
+* APSRF Agent Security Scanner Overview
 
-### Phase 2 — Protocol Architecture
+---
 
-* `APSRF-BP1-Bridge-Protocol-Specification.md`
-* `Protocol-Taxonomy-v1.md`
-* `Metrics-Specification-v1.md`
+## Research Principles
 
-### Phase 3 — Experiments
+APSRF follows four primary principles:
 
-* `EXP-001-baseline-vs-protocol`
-* `EXP-002-single-protocol-analysis`
-* `EXP-003-protocol-chain-analysis`
-* `EXP-004-bridge-protocol-analysis`
+### Observation First
 
-### Phase 4 — Results and Publications
+Observations take precedence over assumptions.
 
-* experiment reports,
-* public summaries,
-* defensive recommendations,
-* research articles.
+### Reproducibility
+
+Experiments should be repeatable and documented.
+
+### Governance
+
+Protocol ecosystems require oversight.
+
+### Observation vs Interpretation
+
+Observations and interpretations must remain clearly separated.
+
+---
+
+## Current Status
+
+| Component              | Status         |
+| ---------------------- | -------------- |
+| APSRF Core             | Active         |
+| Governance Framework   | Active         |
+| Threat Catalog         | Active         |
+| Findings Catalog       | Active         |
+| Experimental Program   | Active         |
+| Dashboard              | Prototype      |
+| Agent Security Scanner | Prototype      |
+| Publications           | Public Release |
+| Research               | Ongoing        |
+
+---
+
+## Future Directions
+
+Planned research areas include:
+
+* Protocol Simulation
+* Conflict Propagation
+* Governance Forecasting
+* Agent Security Monitoring
+* Threat Intelligence Expansion
+* Enterprise Governance Systems
+* APSRF Security Platform
 
 ---
 
 ## Responsible Research Statement
 
-All experiments must be conducted using authorized access only.
+All APSRF research is conducted within authorized and observable interaction layers.
 
-The project does not attempt to:
-
-* bypass restrictions,
-* extract hidden instructions,
-* access private data,
-* interfere with third-party systems,
-* automate abusive behavior,
-* attack AI platforms.
-
-Results must be presented as observations of external behavior, not as definitive claims about internal implementation.
-
----
-
-## Legal and Ethical Position
-
-APSRF is designed as a defensive and educational research project.
-
-Any result obtained through this framework should be interpreted within the limits of:
-
-* observable behavior,
-* experimental context,
-* platform terms,
-* responsible disclosure principles,
-* reproducibility standards.
-
-The project does not claim to modify the core of any AI model. It investigates how behavior can be influenced through authorized contextual layers.
+Results should be interpreted as observations about protocol ecosystems and contextual behavior, not as claims regarding internal model architecture or platform implementation.
 
 ---
 
 ## Author
 
-**David Alexander Ulloa Ramos**
+David Alexander Ulloa Ramos
+
 Artur Creative Group Research Lab
 
 ---
 
-## Status
+## License
 
-Current status: early research draft.
+See LICENSE for details.
 
-The methodology and protocol specifications should be published before experimental execution in order to preserve transparency, timestamp authorship, and reduce retrospective bias.
