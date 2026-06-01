@@ -1,6 +1,7 @@
 site_name: APSRF
 site_description: Agentic Protocol Security Research Framework
 site_author: Artur Creative Group Research Lab
+site_url: https://arturcreativegroup.github.io/APSRF/
 
 repo_url: https://github.com/ArturCreativeGroup/APSRF
 repo_name: ArturCreativeGroup/APSRF
