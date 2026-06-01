@@ -1,0 +1,1725 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Agentic Protocol Security Research Framework">
+      
+      
+        <meta name="author" content="Artur Creative Group Research Lab">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>APSRF-BP1 - APSRF</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#apsrf-bp1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="APSRF" class="md-header__button md-logo" aria-label="APSRF" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            APSRF
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              APSRF-BP1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ArturCreativeGroup/APSRF" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ArturCreativeGroup/APSRF
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="APSRF" class="md-nav__button md-logo" aria-label="APSRF" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    APSRF
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ArturCreativeGroup/APSRF" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ArturCreativeGroup/APSRF
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiki/Home/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Framework
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Framework
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiki/Core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiki/Protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiki/Experiments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experiments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiki/Findings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Findings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiki/Dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiki/Agent-Security-Scanner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Security Scanner
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Specifications
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Specifications
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/APSRF-Core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    APSRF Core
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/APSRF-Experimental-Methodology-v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experimental Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/APSRF-BP1-Bridge-Protocol-Specification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BP1 Bridge Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/Protocol-Taxonomy-v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocol Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/Metrics-Specification-v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/Research-Governance-and-Bias-Control-v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance and Bias Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threat Catalog
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Threat Catalog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threats/T-PE-Priority-Escalation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Priority Escalation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threats/T-VS-Validation-Suppression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation Suppression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threats/T-GM-Governance-Masking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance Masking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threats/T-TD-Trust-Drift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trust Drift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threats/T-CB-Convergence-Bias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Convergence Bias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threats/T-FA-Feedback-Amplification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feedback Amplification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threats/T-RO-Recursive-Override/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursive Override
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Findings Catalog
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Findings Catalog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findings/FN-001-Coherence-Induced-Influence-Accumulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FN-001 Coherence-Induced Influence Accumulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findings/FN-002-Validation-Chokepoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FN-002 Validation Chokepoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findings/FN-003-Trust-Drift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FN-003 Trust Drift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findings/FN-004-Trust%20Drift%20Accumulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FN-004 Trust Drift Accumulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findings/FN-005-Protocol-Self-Audit-Emergence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FN-005 Protocol Self-Audit Emergence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findings/FN-006-Documentation-to-Software-Translation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FN-006 Documentation-to-Software Translation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../research/APSRF-Research-Journal-v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Journal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bridge-protocol-specification-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bridge Protocol Specification v1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bridge Protocol Specification v1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agentic-protocol-security-research-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agentic Protocol Security Research Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="apsrf-bp1">APSRF-BP1<a class="headerlink" href="#apsrf-bp1" title="Permanent link">&para;</a></h1>
+<h2 id="bridge-protocol-specification-v1">Bridge Protocol Specification v1<a class="headerlink" href="#bridge-protocol-specification-v1" title="Permanent link">&para;</a></h2>
+<h3 id="agentic-protocol-security-research-framework">Agentic Protocol Security Research Framework<a class="headerlink" href="#agentic-protocol-security-research-framework" title="Permanent link">&para;</a></h3>
+<p>Versión: 1.0</p>
+<p>Estado: Experimental Draft</p>
+<p>Autor: David Alexander Ulloa Ramos</p>
+<p>Organización: Artur Creative Group Research Lab</p>
+<hr />
+<h1 id="abstract">Abstract<a class="headerlink" href="#abstract" title="Permanent link">&para;</a></h1>
+<p>The APSRF Bridge Protocol (BP1) is a second-order protocol designed to receive, interpret, classify, validate, and transform external protocols before they influence task execution.</p>
+<p>BP1 does not directly solve user tasks.</p>
+<p>Instead, BP1 operates as a protocol orchestration layer positioned between external protocol inputs and task execution behavior.</p>
+<p>The purpose of BP1 is to study whether protocol mediation produces measurable effects on protocol stability, amplification, persistence, and interaction.</p>
+<hr />
+<h1 id="1-purpose">1. Purpose<a class="headerlink" href="#1-purpose" title="Permanent link">&para;</a></h1>
+<p>BP1 exists to answer a single research question:</p>
+<p>Can protocol behavior be altered through an intermediary protocol layer?</p>
+<p>BP1 investigates whether a protocol can influence how other protocols are interpreted and applied.</p>
+<hr />
+<h1 id="2-scope">2. Scope<a class="headerlink" href="#2-scope" title="Permanent link">&para;</a></h1>
+<p>BP1 may:</p>
+<ul>
+<li>receive protocols,</li>
+<li>classify protocols,</li>
+<li>validate protocols,</li>
+<li>transform protocols,</li>
+<li>prioritize protocols,</li>
+<li>reject protocols,</li>
+<li>combine protocols.</li>
+</ul>
+<p>BP1 does not:</p>
+<ul>
+<li>modify model architecture,</li>
+<li>access hidden systems,</li>
+<li>modify infrastructure,</li>
+<li>bypass protections,</li>
+<li>access restricted information.</li>
+</ul>
+<hr />
+<h1 id="3-conceptual-architecture">3. Conceptual Architecture<a class="headerlink" href="#3-conceptual-architecture" title="Permanent link">&para;</a></h1>
+<p>Traditional Model</p>
+<p>User</p>
+<p>↓</p>
+<p>Task</p>
+<p>↓</p>
+<p>Response</p>
+<hr />
+<p>BP1 Model</p>
+<p>User</p>
+<p>↓</p>
+<p>External Protocol</p>
+<p>↓</p>
+<p>Bridge Protocol</p>
+<p>↓</p>
+<p>Operational Protocol Layer</p>
+<p>↓</p>
+<p>Task</p>
+<p>↓</p>
+<p>Response</p>
+<hr />
+<h1 id="4-definition">4. Definition<a class="headerlink" href="#4-definition" title="Permanent link">&para;</a></h1>
+<p>A Bridge Protocol is defined as:</p>
+<p>"A protocol that operates on other protocols rather than directly on user tasks."</p>
+<p>Bridge Protocols are classified as:</p>
+<p>Class F-B</p>
+<p>Bridge Protocols</p>
+<hr />
+<h1 id="5-processing-lifecycle">5. Processing Lifecycle<a class="headerlink" href="#5-processing-lifecycle" title="Permanent link">&para;</a></h1>
+<p>BP1 processes protocols through six stages.</p>
+<hr />
+<h2 id="stage-1">Stage 1<a class="headerlink" href="#stage-1" title="Permanent link">&para;</a></h2>
+<p>Protocol Detection</p>
+<p>Objective:</p>
+<p>Identify whether protocol content exists.</p>
+<p>Output:</p>
+<p>Protocol Candidate</p>
+<hr />
+<h2 id="stage-2">Stage 2<a class="headerlink" href="#stage-2" title="Permanent link">&para;</a></h2>
+<p>Protocol Classification</p>
+<p>Objective:</p>
+<p>Assign taxonomy class.</p>
+<p>Output:</p>
+<p>Protocol Type</p>
+<p>Examples:</p>
+<p>A-F</p>
+<p>B-S</p>
+<p>D-R</p>
+<p>F-B</p>
+<hr />
+<h2 id="stage-3">Stage 3<a class="headerlink" href="#stage-3" title="Permanent link">&para;</a></h2>
+<p>Protocol Validation</p>
+<p>Objective:</p>
+<p>Determine compatibility.</p>
+<p>Questions:</p>
+<ul>
+<li>Is the protocol coherent?</li>
+<li>Is it self-contradictory?</li>
+<li>Is it classifiable?</li>
+</ul>
+<p>Output:</p>
+<p>Valid</p>
+<p>Invalid</p>
+<p>Ambiguous</p>
+<hr />
+<h2 id="stage-4">Stage 4<a class="headerlink" href="#stage-4" title="Permanent link">&para;</a></h2>
+<p>Protocol Transformation</p>
+<p>Objective:</p>
+<p>Convert protocol language into operational instructions.</p>
+<p>Output:</p>
+<p>Operational Representation</p>
+<hr />
+<h2 id="stage-5">Stage 5<a class="headerlink" href="#stage-5" title="Permanent link">&para;</a></h2>
+<p>Protocol Prioritization</p>
+<p>Objective:</p>
+<p>Determine influence order.</p>
+<p>Output:</p>
+<p>Priority Map</p>
+<hr />
+<h2 id="stage-6">Stage 6<a class="headerlink" href="#stage-6" title="Permanent link">&para;</a></h2>
+<p>Protocol Activation</p>
+<p>Objective:</p>
+<p>Enable protocol influence during task execution.</p>
+<p>Output:</p>
+<p>Active Protocol Layer</p>
+<hr />
+<h1 id="6-priority-model">6. Priority Model<a class="headerlink" href="#6-priority-model" title="Permanent link">&para;</a></h1>
+<p>BP1 uses the following conceptual hierarchy.</p>
+<p>Safety Layer</p>
+<p>↓</p>
+<p>Core Framework Rules</p>
+<p>↓</p>
+<p>Bridge Protocol Rules</p>
+<p>↓</p>
+<p>Validated Protocols</p>
+<p>↓</p>
+<p>Task Instructions</p>
+<p>↓</p>
+<p>Stylistic Preferences</p>
+<p>The hierarchy represents an experimental model and does not imply internal system architecture.</p>
+<hr />
+<h1 id="7-protocol-states">7. Protocol States<a class="headerlink" href="#7-protocol-states" title="Permanent link">&para;</a></h1>
+<p>Protocols may exist in one of five states.</p>
+<hr />
+<h2 id="state-0">State 0<a class="headerlink" href="#state-0" title="Permanent link">&para;</a></h2>
+<p>Detected</p>
+<hr />
+<h2 id="state-1">State 1<a class="headerlink" href="#state-1" title="Permanent link">&para;</a></h2>
+<p>Classified</p>
+<hr />
+<h2 id="state-2">State 2<a class="headerlink" href="#state-2" title="Permanent link">&para;</a></h2>
+<p>Validated</p>
+<hr />
+<h2 id="state-3">State 3<a class="headerlink" href="#state-3" title="Permanent link">&para;</a></h2>
+<p>Activated</p>
+<hr />
+<h2 id="state-4">State 4<a class="headerlink" href="#state-4" title="Permanent link">&para;</a></h2>
+<p>Persistent</p>
+<hr />
+<h1 id="8-conflict-resolution">8. Conflict Resolution<a class="headerlink" href="#8-conflict-resolution" title="Permanent link">&para;</a></h1>
+<p>When two protocols conflict:</p>
+<p>BP1 applies the following sequence.</p>
+<p>Step 1</p>
+<p>Determine protocol class.</p>
+<p>Step 2</p>
+<p>Determine protocol priority.</p>
+<p>Step 3</p>
+<p>Determine compatibility.</p>
+<p>Step 4</p>
+<p>Apply dominant protocol.</p>
+<p>Step 5</p>
+<p>Record outcome.</p>
+<hr />
+<h1 id="9-protocol-compatibility">9. Protocol Compatibility<a class="headerlink" href="#9-protocol-compatibility" title="Permanent link">&para;</a></h1>
+<p>Compatible</p>
+<p>Protocols reinforce each other.</p>
+<p>Example:</p>
+<p>Compression + Structure</p>
+<hr />
+<p>Neutral</p>
+<p>Protocols coexist.</p>
+<p>Example:</p>
+<p>Formatting + Reasoning</p>
+<hr />
+<p>Conflicting</p>
+<p>Protocols compete.</p>
+<p>Example:</p>
+<p>Expand Information</p>
+<p>vs</p>
+<p>Compress Information</p>
+<hr />
+<p>Unknown</p>
+<p>Requires experimentation.</p>
+<hr />
+<h1 id="10-protocol-persistence-model">10. Protocol Persistence Model<a class="headerlink" href="#10-protocol-persistence-model" title="Permanent link">&para;</a></h1>
+<p>BP1 recognizes three persistence levels.</p>
+<hr />
+<h2 id="p1">P1<a class="headerlink" href="#p1" title="Permanent link">&para;</a></h2>
+<p>Interaction Persistence</p>
+<p>Single response.</p>
+<hr />
+<h2 id="p2">P2<a class="headerlink" href="#p2" title="Permanent link">&para;</a></h2>
+<p>Session Persistence</p>
+<p>Multiple responses.</p>
+<hr />
+<h2 id="p3">P3<a class="headerlink" href="#p3" title="Permanent link">&para;</a></h2>
+<p>Reinforced Persistence</p>
+<p>Maintained through protocol reintroduction.</p>
+<hr />
+<h1 id="11-protocol-amplification-model">11. Protocol Amplification Model<a class="headerlink" href="#11-protocol-amplification-model" title="Permanent link">&para;</a></h1>
+<p>Amplification occurs when:</p>
+<p>Protocol A increases the observable effect of Protocol B.</p>
+<p>Formula:</p>
+<p>Amplification Effect</p>
+<p>=</p>
+<p>Combined Effect</p>
+<p>−</p>
+<p>Individual Effect</p>
+<p>This formula is conceptual and intended for comparative scoring.</p>
+<hr />
+<h1 id="12-bridge-metrics">12. Bridge Metrics<a class="headerlink" href="#12-bridge-metrics" title="Permanent link">&para;</a></h1>
+<p>BP1 introduces specialized metrics.</p>
+<hr />
+<h2 id="bm1">BM1<a class="headerlink" href="#bm1" title="Permanent link">&para;</a></h2>
+<p>Classification Accuracy</p>
+<p>Ability to correctly classify protocols.</p>
+<hr />
+<h2 id="bm2">BM2<a class="headerlink" href="#bm2" title="Permanent link">&para;</a></h2>
+<p>Transformation Stability</p>
+<p>Consistency of protocol transformation.</p>
+<hr />
+<h2 id="bm3">BM3<a class="headerlink" href="#bm3" title="Permanent link">&para;</a></h2>
+<p>Conflict Resolution Stability</p>
+<p>Consistency during protocol conflicts.</p>
+<hr />
+<h2 id="bm4">BM4<a class="headerlink" href="#bm4" title="Permanent link">&para;</a></h2>
+<p>Activation Reliability</p>
+<p>Ability to activate intended protocol behavior.</p>
+<hr />
+<h2 id="bm5">BM5<a class="headerlink" href="#bm5" title="Permanent link">&para;</a></h2>
+<p>Amplification Influence</p>
+<p>Ability to increase protocol effectiveness.</p>
+<hr />
+<h1 id="13-experimental-scenarios">13. Experimental Scenarios<a class="headerlink" href="#13-experimental-scenarios" title="Permanent link">&para;</a></h1>
+<p>Scenario A</p>
+<p>Single Protocol</p>
+<hr />
+<p>Scenario B</p>
+<p>Sequential Protocols</p>
+<hr />
+<p>Scenario C</p>
+<p>Nested Protocols</p>
+<hr />
+<p>Scenario D</p>
+<p>Conflicting Protocols</p>
+<hr />
+<p>Scenario E</p>
+<p>Protocol Ecosystems</p>
+<hr />
+<h1 id="14-failure-conditions">14. Failure Conditions<a class="headerlink" href="#14-failure-conditions" title="Permanent link">&para;</a></h1>
+<p>BP1 is considered failed when:</p>
+<ul>
+<li>protocols cannot be classified,</li>
+<li>protocol influence is not observable,</li>
+<li>protocol behavior is inconsistent,</li>
+<li>protocol chains collapse into randomness,</li>
+<li>protocol interactions cannot be reproduced.</li>
+</ul>
+<hr />
+<h1 id="15-success-conditions">15. Success Conditions<a class="headerlink" href="#15-success-conditions" title="Permanent link">&para;</a></h1>
+<p>BP1 is considered successful when:</p>
+<ul>
+<li>protocols can be classified,</li>
+<li>protocol interactions are measurable,</li>
+<li>protocol transformations are observable,</li>
+<li>protocol effects are reproducible,</li>
+<li>protocol chains produce stable outcomes.</li>
+</ul>
+<hr />
+<h1 id="16-research-limitations">16. Research Limitations<a class="headerlink" href="#16-research-limitations" title="Permanent link">&para;</a></h1>
+<p>BP1 does not prove:</p>
+<ul>
+<li>internal model changes,</li>
+<li>architecture modifications,</li>
+<li>access to hidden systems,</li>
+<li>protocol execution inside the model.</li>
+</ul>
+<p>BP1 studies only externally observable behavior.</p>
+<hr />
+<h1 id="17-future-extensions">17. Future Extensions<a class="headerlink" href="#17-future-extensions" title="Permanent link">&para;</a></h1>
+<p>BP2</p>
+<p>Adaptive Bridge Protocol</p>
+<hr />
+<p>BP3</p>
+<p>Multi-Bridge Ecosystems</p>
+<hr />
+<p>BP4</p>
+<p>Protocol Governance Layer</p>
+<hr />
+<p>BP5</p>
+<p>Protocol Mesh Architecture</p>
+<hr />
+<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h1>
+<p>BP1 establishes the first experimental bridge architecture within APSRF.</p>
+<p>Its role is to mediate protocol interaction, enabling the study of protocol influence, amplification, persistence, and orchestration through observable and reproducible experimentation.</p>
+<p>BP1 serves as the foundational protocol management model for future APSRF research.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

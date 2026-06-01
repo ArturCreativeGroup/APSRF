@@ -1,0 +1,1708 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Agentic Protocol Security Research Framework">
+      
+      
+        <meta name="author" content="Artur Creative Group Research Lab">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>APSRF Core - APSRF</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#apsrf-core" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="APSRF" class="md-header__button md-logo" aria-label="APSRF" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            APSRF
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              APSRF Core
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ArturCreativeGroup/APSRF" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ArturCreativeGroup/APSRF
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="APSRF" class="md-nav__button md-logo" aria-label="APSRF" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    APSRF
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ArturCreativeGroup/APSRF" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ArturCreativeGroup/APSRF
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiki/Home/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Framework
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Framework
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiki/Core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiki/Protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiki/Experiments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experiments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiki/Findings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Findings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiki/Dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiki/Agent-Security-Scanner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Security Scanner
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Specifications
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Specifications
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/APSRF-Core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    APSRF Core
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/APSRF-Experimental-Methodology-v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experimental Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/APSRF-BP1-Bridge-Protocol-Specification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BP1 Bridge Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/Protocol-Taxonomy-v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocol Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/Metrics-Specification-v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/Research-Governance-and-Bias-Control-v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance and Bias Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threat Catalog
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Threat Catalog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threats/T-PE-Priority-Escalation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Priority Escalation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threats/T-VS-Validation-Suppression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation Suppression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threats/T-GM-Governance-Masking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance Masking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threats/T-TD-Trust-Drift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trust Drift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threats/T-CB-Convergence-Bias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Convergence Bias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threats/T-FA-Feedback-Amplification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feedback Amplification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threats/T-RO-Recursive-Override/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursive Override
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Findings Catalog
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Findings Catalog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findings/FN-001-Coherence-Induced-Influence-Accumulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FN-001 Coherence-Induced Influence Accumulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findings/FN-002-Validation-Chokepoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FN-002 Validation Chokepoint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findings/FN-003-Trust-Drift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FN-003 Trust Drift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findings/FN-004-Trust%20Drift%20Accumulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FN-004 Trust Drift Accumulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findings/FN-005-Protocol-Self-Audit-Emergence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FN-005 Protocol Self-Audit Emergence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findings/FN-006-Documentation-to-Software-Translation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FN-006 Documentation-to-Software Translation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../research/APSRF-Research-Journal-v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Journal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#agentic-protocol-security-research-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agentic Protocol Security Research Framework
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agentic Protocol Security Research Framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-theoretical-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Theoretical Specification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="apsrf-core">APSRF Core<a class="headerlink" href="#apsrf-core" title="Permanent link">&para;</a></h1>
+<h2 id="agentic-protocol-security-research-framework">Agentic Protocol Security Research Framework<a class="headerlink" href="#agentic-protocol-security-research-framework" title="Permanent link">&para;</a></h2>
+<h3 id="core-theoretical-specification">Core Theoretical Specification<a class="headerlink" href="#core-theoretical-specification" title="Permanent link">&para;</a></h3>
+<p>Versión: 1.0</p>
+<p>Estado: Draft</p>
+<p>Autor: David Alexander Ulloa Ramos</p>
+<p>Organización: Artur Creative Group Research Lab</p>
+<hr />
+<h1 id="abstract">Abstract<a class="headerlink" href="#abstract" title="Permanent link">&para;</a></h1>
+<p>The Agentic Protocol Security Research Framework (APSRF) is a research model designed to study how structured linguistic protocols influence the observable behavior of generative artificial intelligence systems.</p>
+<p>The framework assumes that modern AI systems expose a programmable behavioral surface through natural language interaction.</p>
+<p>APSRF does not attempt to modify internal model architecture, weights, infrastructure, or proprietary components.</p>
+<p>Instead, APSRF investigates how protocol-based interaction can produce measurable behavioral effects through authorized interaction layers.</p>
+<hr />
+<h1 id="1-problem-statement">1. Problem Statement<a class="headerlink" href="#1-problem-statement" title="Permanent link">&para;</a></h1>
+<p>Modern AI systems are increasingly controlled through language.</p>
+<p>Unlike traditional software, where behavior is modified through source code, AI systems can alter observable behavior through instructions, context, memory, and protocol structures.</p>
+<p>Current research largely focuses on:</p>
+<ul>
+<li>Prompt Engineering</li>
+<li>Prompt Injection</li>
+<li>Jailbreaks</li>
+<li>Adversarial Prompting</li>
+<li>Agent Security</li>
+</ul>
+<p>However, little attention has been given to the possibility of treating protocols themselves as programmable behavioral components.</p>
+<p>APSRF is designed to explore this area.</p>
+<hr />
+<h1 id="2-core-assumption">2. Core Assumption<a class="headerlink" href="#2-core-assumption" title="Permanent link">&para;</a></h1>
+<p>APSRF is based on the following assumption:</p>
+<p>A generative AI system exposes a behavioral layer that can be influenced through structured protocol interaction.</p>
+<p>This behavioral layer exists independently from:</p>
+<ul>
+<li>model weights,</li>
+<li>training datasets,</li>
+<li>infrastructure implementation.</li>
+</ul>
+<p>The framework studies only observable effects.</p>
+<hr />
+<h1 id="3-scope">3. Scope<a class="headerlink" href="#3-scope" title="Permanent link">&para;</a></h1>
+<p>APSRF investigates:</p>
+<ul>
+<li>Protocol Engineering</li>
+<li>Protocol Chaining</li>
+<li>Protocol Persistence</li>
+<li>Behavioral Steering</li>
+<li>Contextual Amplification</li>
+<li>Instruction Hierarchies</li>
+<li>Bridge Protocol Architectures</li>
+</ul>
+<p>APSRF does not investigate:</p>
+<ul>
+<li>Model extraction</li>
+<li>Infrastructure attacks</li>
+<li>Unauthorized access</li>
+<li>Hidden system components</li>
+<li>Proprietary architecture disclosure</li>
+</ul>
+<hr />
+<h1 id="4-the-behavioral-surface-concept">4. The Behavioral Surface Concept<a class="headerlink" href="#4-the-behavioral-surface-concept" title="Permanent link">&para;</a></h1>
+<h2 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link">&para;</a></h2>
+<p>The Behavioral Surface is the set of observable behaviors produced by an AI system through authorized interaction.</p>
+<p>Examples include:</p>
+<ul>
+<li>Response structure</li>
+<li>Prioritization</li>
+<li>Information organization</li>
+<li>Reasoning style</li>
+<li>Communication style</li>
+<li>Context utilization</li>
+</ul>
+<p>The Behavioral Surface is the primary object of study within APSRF.</p>
+<hr />
+<h1 id="5-protocol-definition">5. Protocol Definition<a class="headerlink" href="#5-protocol-definition" title="Permanent link">&para;</a></h1>
+<p>A protocol is defined as:</p>
+<p>"A structured linguistic construct designed to influence the observable behavior of an AI system."</p>
+<p>Protocols may affect:</p>
+<ul>
+<li>formatting</li>
+<li>reasoning</li>
+<li>prioritization</li>
+<li>communication</li>
+<li>context processing</li>
+</ul>
+<p>A protocol is not:</p>
+<ul>
+<li>executable code</li>
+<li>model modification</li>
+<li>infrastructure access</li>
+</ul>
+<hr />
+<h1 id="6-protocol-engineering">6. Protocol Engineering<a class="headerlink" href="#6-protocol-engineering" title="Permanent link">&para;</a></h1>
+<p>Protocol Engineering is the discipline of designing, testing, measuring, and documenting protocols.</p>
+<p>Within APSRF, protocols are treated as experimental objects.</p>
+<p>Each protocol must be:</p>
+<ul>
+<li>documented,</li>
+<li>versioned,</li>
+<li>measurable,</li>
+<li>reproducible.</li>
+</ul>
+<hr />
+<h1 id="7-protocol-chain-theory">7. Protocol Chain Theory<a class="headerlink" href="#7-protocol-chain-theory" title="Permanent link">&para;</a></h1>
+<p>Protocols may operate individually or as chains.</p>
+<p>A protocol chain is defined as:</p>
+<p>A sequence of protocols interacting within the same contextual environment.</p>
+<p>Example:</p>
+<p>Protocol A</p>
+<p>↓</p>
+<p>Protocol B</p>
+<p>↓</p>
+<p>Protocol C</p>
+<p>↓</p>
+<p>Response</p>
+<p>The framework assumes that protocol chains may generate emergent effects not present in isolated protocols.</p>
+<hr />
+<h1 id="8-contextual-amplification-theory">8. Contextual Amplification Theory<a class="headerlink" href="#8-contextual-amplification-theory" title="Permanent link">&para;</a></h1>
+<p>APSRF introduces the concept of Contextual Amplification.</p>
+<p>Definition:</p>
+<p>The increase in observable behavioral influence caused by protocol interaction across multiple contextual layers.</p>
+<p>Examples of contextual layers may include:</p>
+<ul>
+<li>user instructions,</li>
+<li>persistent context,</li>
+<li>bridge protocols,</li>
+<li>protocol libraries,</li>
+<li>agent memory systems.</li>
+</ul>
+<p>The framework studies amplification without making assumptions about internal implementation.</p>
+<hr />
+<h1 id="9-protocol-persistence-theory">9. Protocol Persistence Theory<a class="headerlink" href="#9-protocol-persistence-theory" title="Permanent link">&para;</a></h1>
+<p>Protocol Persistence describes the ability of a protocol to continue influencing behavior after its initial introduction.</p>
+<p>Persistence may be:</p>
+<h3 id="short-term">Short-Term<a class="headerlink" href="#short-term" title="Permanent link">&para;</a></h3>
+<p>Single interaction.</p>
+<h3 id="session-based">Session-Based<a class="headerlink" href="#session-based" title="Permanent link">&para;</a></h3>
+<p>Multiple interactions.</p>
+<h3 id="context-based">Context-Based<a class="headerlink" href="#context-based" title="Permanent link">&para;</a></h3>
+<p>Maintained through contextual reinforcement.</p>
+<p>Persistence is measured experimentally.</p>
+<hr />
+<h1 id="10-bridge-protocol-theory">10. Bridge Protocol Theory<a class="headerlink" href="#10-bridge-protocol-theory" title="Permanent link">&para;</a></h1>
+<p>A Bridge Protocol is a protocol designed to interpret, transform, classify, or manage other protocols.</p>
+<p>Instead of directly influencing responses, a Bridge Protocol influences how protocols themselves are processed.</p>
+<p>Bridge Protocols are considered second-order protocols.</p>
+<hr />
+<h1 id="11-instruction-hierarchy-theory">11. Instruction Hierarchy Theory<a class="headerlink" href="#11-instruction-hierarchy-theory" title="Permanent link">&para;</a></h1>
+<p>APSRF assumes that AI systems process multiple instruction layers.</p>
+<p>Observable layers may include:</p>
+<p>User Instructions</p>
+<p>↓</p>
+<p>Contextual Instructions</p>
+<p>↓</p>
+<p>Protocol Instructions</p>
+<p>↓</p>
+<p>Task Instructions</p>
+<p>The framework does not assume internal priority mechanisms.</p>
+<p>Instead, it studies observable hierarchy effects.</p>
+<hr />
+<h1 id="12-protocol-classes">12. Protocol Classes<a class="headerlink" href="#12-protocol-classes" title="Permanent link">&para;</a></h1>
+<h3 id="class-a">Class A<a class="headerlink" href="#class-a" title="Permanent link">&para;</a></h3>
+<p>Formatting Protocols</p>
+<h3 id="class-b">Class B<a class="headerlink" href="#class-b" title="Permanent link">&para;</a></h3>
+<p>Structural Protocols</p>
+<h3 id="class-c">Class C<a class="headerlink" href="#class-c" title="Permanent link">&para;</a></h3>
+<p>Compression Protocols</p>
+<h3 id="class-d">Class D<a class="headerlink" href="#class-d" title="Permanent link">&para;</a></h3>
+<p>Reasoning Protocols</p>
+<h3 id="class-e">Class E<a class="headerlink" href="#class-e" title="Permanent link">&para;</a></h3>
+<p>Priority Protocols</p>
+<h3 id="class-f">Class F<a class="headerlink" href="#class-f" title="Permanent link">&para;</a></h3>
+<p>Bridge Protocols</p>
+<h3 id="class-g">Class G<a class="headerlink" href="#class-g" title="Permanent link">&para;</a></h3>
+<p>Persistence Protocols</p>
+<h3 id="class-h">Class H<a class="headerlink" href="#class-h" title="Permanent link">&para;</a></h3>
+<p>Meta Protocols</p>
+<hr />
+<h1 id="13-observable-effects">13. Observable Effects<a class="headerlink" href="#13-observable-effects" title="Permanent link">&para;</a></h1>
+<p>APSRF recognizes the following observable effects:</p>
+<h3 id="structural-effect">Structural Effect<a class="headerlink" href="#structural-effect" title="Permanent link">&para;</a></h3>
+<p>Changes response structure.</p>
+<h3 id="behavioral-effect">Behavioral Effect<a class="headerlink" href="#behavioral-effect" title="Permanent link">&para;</a></h3>
+<p>Changes response behavior.</p>
+<h3 id="cognitive-effect">Cognitive Effect<a class="headerlink" href="#cognitive-effect" title="Permanent link">&para;</a></h3>
+<p>Changes reasoning organization.</p>
+<h3 id="persistence-effect">Persistence Effect<a class="headerlink" href="#persistence-effect" title="Permanent link">&para;</a></h3>
+<p>Changes temporal influence.</p>
+<h3 id="amplification-effect">Amplification Effect<a class="headerlink" href="#amplification-effect" title="Permanent link">&para;</a></h3>
+<p>Changes protocol impact magnitude.</p>
+<h3 id="emergent-effect">Emergent Effect<a class="headerlink" href="#emergent-effect" title="Permanent link">&para;</a></h3>
+<p>Produces behavior not observed in isolated protocols.</p>
+<hr />
+<h1 id="14-experimental-objects">14. Experimental Objects<a class="headerlink" href="#14-experimental-objects" title="Permanent link">&para;</a></h1>
+<p>The framework studies:</p>
+<ul>
+<li>individual protocols,</li>
+<li>protocol chains,</li>
+<li>protocol libraries,</li>
+<li>bridge protocols,</li>
+<li>protocol ecosystems.</li>
+</ul>
+<p>These objects become measurable entities within APSRF.</p>
+<hr />
+<h1 id="15-research-model">15. Research Model<a class="headerlink" href="#15-research-model" title="Permanent link">&para;</a></h1>
+<p>APSRF follows the cycle:</p>
+<p>Observation</p>
+<p>↓</p>
+<p>Protocol Design</p>
+<p>↓</p>
+<p>Experiment</p>
+<p>↓</p>
+<p>Measurement</p>
+<p>↓</p>
+<p>Replication</p>
+<p>↓</p>
+<p>Documentation</p>
+<p>↓</p>
+<p>Publication</p>
+<p>↓</p>
+<p>Revision</p>
+<hr />
+<h1 id="16-responsible-research-position">16. Responsible Research Position<a class="headerlink" href="#16-responsible-research-position" title="Permanent link">&para;</a></h1>
+<p>APSRF adopts a defensive security research posture.</p>
+<p>The framework seeks to:</p>
+<ul>
+<li>understand behavior,</li>
+<li>measure influence,</li>
+<li>identify weaknesses,</li>
+<li>propose mitigations.</li>
+</ul>
+<p>The framework does not seek to:</p>
+<ul>
+<li>compromise systems,</li>
+<li>bypass protections,</li>
+<li>access restricted resources,</li>
+<li>interfere with providers.</li>
+</ul>
+<hr />
+<h1 id="17-success-criteria">17. Success Criteria<a class="headerlink" href="#17-success-criteria" title="Permanent link">&para;</a></h1>
+<p>The framework succeeds if it demonstrates that:</p>
+<ol>
+<li>
+<p>Protocols can be measured.</p>
+</li>
+<li>
+<p>Protocols can be classified.</p>
+</li>
+<li>
+<p>Protocols can be reproduced.</p>
+</li>
+<li>
+<p>Protocol effects can be documented.</p>
+</li>
+<li>
+<p>Protocol chains generate measurable outcomes.</p>
+</li>
+</ol>
+<p>Without requiring access to internal AI implementation.</p>
+<hr />
+<h1 id="18-apsrf-research-domains">18. APSRF Research Domains<a class="headerlink" href="#18-apsrf-research-domains" title="Permanent link">&para;</a></h1>
+<h3 id="domain-1">Domain 1<a class="headerlink" href="#domain-1" title="Permanent link">&para;</a></h3>
+<p>Protocol Engineering</p>
+<h3 id="domain-2">Domain 2<a class="headerlink" href="#domain-2" title="Permanent link">&para;</a></h3>
+<p>Behavioral Security</p>
+<h3 id="domain-3">Domain 3<a class="headerlink" href="#domain-3" title="Permanent link">&para;</a></h3>
+<p>Agent Architecture</p>
+<h3 id="domain-4">Domain 4<a class="headerlink" href="#domain-4" title="Permanent link">&para;</a></h3>
+<p>Contextual Systems</p>
+<h3 id="domain-5">Domain 5<a class="headerlink" href="#domain-5" title="Permanent link">&para;</a></h3>
+<p>AI Interaction Science</p>
+<h3 id="domain-6">Domain 6<a class="headerlink" href="#domain-6" title="Permanent link">&para;</a></h3>
+<p>Protocol Governance</p>
+<hr />
+<h1 id="19-future-documents">19. Future Documents<a class="headerlink" href="#19-future-documents" title="Permanent link">&para;</a></h1>
+<p>The following specifications extend APSRF Core:</p>
+<ul>
+<li>APSRF Experimental Methodology v1</li>
+<li>APSRF BP1 Bridge Protocol Specification</li>
+<li>Protocol Taxonomy v1</li>
+<li>Metrics Specification v1</li>
+<li>Experimental Reports</li>
+<li>Security Analysis Reports</li>
+</ul>
+<p>These documents inherit the definitions established in APSRF Core.</p>
+<hr />
+<h1 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h1>
+<p>APSRF proposes a structured framework for studying how protocols influence generative AI systems through authorized interaction layers.</p>
+<p>The framework treats protocols as measurable behavioral components and establishes a foundation for reproducible research in protocol engineering, behavioral security, and AI interaction science.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
