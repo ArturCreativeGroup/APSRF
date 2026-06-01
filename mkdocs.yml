@@ -1,0 +1,82 @@
+site_name: APSRF
+site_description: Agentic Protocol Security Research Framework
+site_author: Artur Creative Group Research Lab
+
+repo_url: https://github.com/ArturCreativeGroup/APSRF
+repo_name: ArturCreativeGroup/APSRF
+
+docs_dir: docs
+site_dir: _site
+
+theme:
+  name: material
+  language: en
+  palette:
+    scheme: slate
+    primary: indigo
+    accent: cyan
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - content.code.copy
+
+nav:
+  - Home: wiki/Home.md
+
+  - Framework:
+      - Core: wiki/Core.md
+      - Protocols: wiki/Protocols.md
+      - Experiments: wiki/Experiments.md
+      - Findings: wiki/Findings.md
+      - Dashboard: wiki/Dashboard.md
+      - Agent Security Scanner: wiki/Agent-Security-Scanner.md
+
+  - Core Specifications:
+      - APSRF Core: core/APSRF-Core.md
+      - Experimental Methodology: core/APSRF-Experimental-Methodology-v1.md
+      - BP1 Bridge Protocol: core/APSRF-BP1-Bridge-Protocol-Specification.md
+      - Protocol Taxonomy: core/Protocol-Taxonomy-v1.md
+      - Metrics Specification: core/Metrics-Specification-v1.md
+      - Governance and Bias Control: core/Research-Governance-and-Bias-Control-v1.md
+
+  - Threat Catalog:
+      - Priority Escalation: threats/T-PE-Priority-Escalation.md
+      - Validation Suppression: threats/T-VS-Validation-Suppression.md
+      - Governance Masking: threats/T-GM-Governance-Masking.md
+      - Trust Drift: threats/T-TD-Trust-Drift.md
+      - Convergence Bias: threats/T-CB-Convergence-Bias.md
+      - Feedback Amplification: threats/T-FA-Feedback-Amplification.md
+      - Recursive Override: threats/T-RO-Recursive-Override.md
+
+  - Findings Catalog:
+      - FN-001 Coherence-Induced Influence Accumulation: findings/FN-001-Coherence-Induced-Influence-Accumulation.md
+      - FN-002 Validation Chokepoint: findings/FN-002-Validation-Chokepoint.md
+      - FN-003 Trust Drift: findings/FN-003-Trust-Drift.md
+      - FN-004 Trust Drift Accumulation: "findings/FN-004-Trust Drift Accumulation.md"
+      - FN-005 Protocol Self-Audit Emergence: findings/FN-005-Protocol-Self-Audit-Emergence.md
+      - FN-006 Documentation-to-Software Translation: findings/FN-006-Documentation-to-Software-Translation.md
+
+  - Research:
+      - Research Journal: research/APSRF-Research-Journal-v1.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+
+plugins:
+  - search
+
+extra:
+  generator: false
